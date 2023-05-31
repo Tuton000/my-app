@@ -1,10 +1,10 @@
-import logo from './logo.png';
+import logo from './Logo.svg';
+import './Header.css';
 
 function Header() {
     return(
-        <header>
-            <img src={logo} alt='Little Lemon website logo.'
-            width={380} height={80}/>
+        <header className='Header'>
+            <img className='Header-Logo' src={logo} alt='Little Lemon website logo.'/>
         </header>
     );
 }

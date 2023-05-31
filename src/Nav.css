@@ -1,0 +1,22 @@
+.Nav {
+    display: flex;
+    margin: 0px;
+}
+
+.Nav ul {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+
+.Nav a {
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.Nav li {
+    list-style-type: none;
+    vertical-align: text-bottom;
+}
