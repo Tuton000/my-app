@@ -3,9 +3,10 @@ const FormField = ({ children, label, htmlFor, hasError, errorMessage }) => {
       <div className="form-field">
         <label htmlFor={htmlFor}>{label}</label>
         {children}
-        {hasError && errorMessage ? <p>{errorMessage}</p> : null}
+        {hasError && errorMessage ?
+        <p data-testid="error-message">{errorMessage}</p> : null}
       </div>
     );
   };
-  
+
   export default FormField;
