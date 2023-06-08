@@ -8,8 +8,6 @@ import Home from './pages/Home';
 import Bookings from './pages/Bookings';
 import ConfirmedBooking from './pages/ConfirmedBooking';
 
-import './App.css';
-
 const App = () => {
   return (
     <>
@@ -17,8 +15,8 @@ const App = () => {
       <Main>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/reservations' element={<Bookings />}/>
-          <Route path='/reservation-confirmation'
+          <Route path='/bookings' element={<Bookings />}/>
+          <Route path='/booking-confirmation'
           element={<ConfirmedBooking />}/>
         </Routes>
       </Main>

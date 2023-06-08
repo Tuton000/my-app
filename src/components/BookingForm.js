@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const BookingForm = ({ availableItems, dispatchOnBookingDateChange, submitForm }) => {
-    const [bookingDate, setBookingDate] = useState('');
+    const today = new Date().toISOString().split('T')[0];
+    const [bookingDate, setBookingDate] = useState(today);
     const [bookingTime, setBookingTime] = useState('');
     const [bookingNumberGuests, setBookingNumberGuests] = useState(1);
-
-    const navigate = useNavigate();
 
     const handleBookingDateChange = (e) => {
         setBookingDate(e.target.value);
@@ -19,17 +17,19 @@ const BookingForm = ({ availableItems, dispatchOnBookingDateChange, submitForm }
             bookingTime,
             bookingNumberGuests,
         }
-        if (submitForm(formData)) navigate('/reservation-confirmation');
-    }
+        submitForm(formData);
+    };
 
     return (
         <form onSubmit={handleFormSubmit}>
+            <h1>Table reservation</h1>
             <div>
                 <label htmlFor="booking-date">Chose date</label>
                 <input
                     type="date"
                     id="booking-date"
                     name="booking-date"
+                    min={today}
                     value={bookingDate}
                     onChange={handleBookingDateChange}
                 />
@@ -54,6 +54,8 @@ const BookingForm = ({ availableItems, dispatchOnBookingDateChange, submitForm }
                     id="booking-number-guests"
                     name="booking-number-guests"
                     value={bookingNumberGuests}
+                    min={1}
+                    max={10}
                     onChange={e => setBookingNumberGuests(e.target.value)}
                 />
             </div>
